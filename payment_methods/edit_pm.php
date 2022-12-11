@@ -1,10 +1,6 @@
 <?php
 require_once('../settings.php');
 
-/*if($_SESSION['role']==0 || $_SESSION['role']==1){
-	die('You are not authorized to modify a category');
-	
-}*/
 if(count($_POST)>0){
 	$query=$connection->prepare('UPDATE payment_methods SET number=?, expdate=?, security=?, name=?, zip=? WHERE ID=?');
 	$query->execute([$_POST['number'],$_POST['expdate'],$_POST['security'],$_POST['name'],$_POST['zip'],$_GET['id']]);
